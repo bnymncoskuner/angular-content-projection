@@ -1,0 +1,31 @@
+<table striped>
+  <thead>
+    <tr>
+      <th *ngFor="let column of columns">
+        <ng-container *ngIf="column.customTitle; else defaultTitle">
+          <ng-container *ngTemplateOutlet="column.customTitle"></ng-container>
+        </ng-container>
+        <ng-template #defaultTitle>
+          {{column.header}}
+        </ng-template>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let column of columns">
+        <ng-container *ngIf="column.customBody; else defaultBody">
+          <ng-container *ngTemplateOutlet="column.customBody; context: {$implicit: row}"></ng-container>
+        </ng-container>
+        <ng-template #defaultBody>
+          {{row[column.field]}}
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <ng-container *ngIf="footer">
+      <ng-container *ngTemplateOutlet="footer.template"></ng-container>
+    </ng-container>
+  </tfoot>
+</table>

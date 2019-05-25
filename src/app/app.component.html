@@ -1,0 +1,28 @@
+<app-panel>
+  <app-panel-title>
+    <h1 style="text-align: center">Cars</h1>
+  </app-panel-title>
+  <app-panel-body>
+    <app-table [data]="data">
+      <app-column field="vin" header="Vin"></app-column>
+      <app-column field="brand" header="Brand"></app-column>
+      <app-column field="color" header="Color"></app-column>
+      <app-column field="price" header="Price">
+        <ng-template #customTitle>
+          Price ($)
+        </ng-template>
+        <ng-template #customBody let-data>
+          {{data.price | currency}}
+        </ng-template>
+      </app-column>
+
+      <app-table-footer>
+        <td></td>
+        <td></td>
+        <td>Total: </td>
+        <td>{{sum | currency}}</td>
+      </app-table-footer>
+    </app-table>
+  </app-panel-body>
+  <app-panel-footer>Panel Footer</app-panel-footer>
+</app-panel>
