@@ -1,0 +1,13 @@
+<div class="dialog-overlay"></div>
+<div class="dialog">
+  <div class="dialog-header">
+    {{header}}
+  </div>
+  <div class="dialog-content">
+    <ng-template #content></ng-template>
+  </div>
+  <div class="dialog-buttons">
+    <button secondary class="cancel" (click)="onCancel()">Cancel</button>
+    <button primary class="approve" (click)="onApprove()">Approve</button>
+  </div>
+</div>

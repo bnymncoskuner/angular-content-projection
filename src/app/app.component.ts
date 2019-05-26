@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DialogService } from './components/dialog/dialog.service';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -35,4 +37,13 @@ export class AppComponent {
     ];
   
   sum = this.data.reduce((total, curr) => total + curr.price, 0);
+
+  constructor(private dialogService: DialogService) {}
+
+  onDelete(row) {
+    const dialogRef = this.dialogService.open(DeleteDialogComponent, {
+      header: 'Delete a car',
+      data: row
+    });
+  }
 }

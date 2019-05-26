@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { PanelComponent, PanelTitleComponent, PanelBodyComponent, PanelFooterComponent } from './components/panel/panel.component';
 import { TableComponent, TableFooterComponent } from './components/table/table.component';
 import { ColumnComponent } from './components/table/column/column.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 const panelComponents = [
   PanelComponent, 
@@ -23,12 +25,15 @@ const tableComponents = [
   declarations: [
     AppComponent,
     ...panelComponents,
-    ...tableComponents
+    ...tableComponents,
+    DeleteDialogComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DeleteDialogComponent, DialogComponent]
 })
 export class AppModule { }

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+button {
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+
+    &[primary] {    
+        background-color: #007ad9;
+        color: white;
+    }
+
+    &[secondary] {
+        background-color: white;
+        color: black;
+    }
+}

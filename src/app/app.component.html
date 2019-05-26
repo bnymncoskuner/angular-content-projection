@@ -15,6 +15,11 @@
           {{data.price | currency}}
         </ng-template>
       </app-column>
+      <app-column>
+        <ng-template #customBody let-data>
+          <button primary (click)="onDelete(data)">Delete</button>
+        </ng-template>
+      </app-column>
 
       <app-table-footer>
         <td></td>
